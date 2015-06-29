@@ -14,6 +14,8 @@
 		B7E364561B41743000F8E4D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7E364551B41743000F8E4D2 /* Images.xcassets */; };
 		B7E364591B41743000F8E4D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7E364571B41743000F8E4D2 /* Main.storyboard */; };
 		B7E364651B41743000F8E4D2 /* MacsterplanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E364641B41743000F8E4D2 /* MacsterplanTests.swift */; };
+		B7E364721B41783400F8E4D2 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E364711B41783400F8E4D2 /* Character.swift */; };
+		B7E364741B41784700F8E4D2 /* CharacterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E364731B41784700F8E4D2 /* CharacterTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		B7E3645E1B41743000F8E4D2 /* MacsterplanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacsterplanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E364631B41743000F8E4D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7E364641B41743000F8E4D2 /* MacsterplanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacsterplanTests.swift; sourceTree = "<group>"; };
+		B7E364711B41783400F8E4D2 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		B7E364731B41784700F8E4D2 /* CharacterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterTest.swift; path = ../Macsterplan/CharacterTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 				B7E364571B41743000F8E4D2 /* Main.storyboard */,
 				B7E364521B41743000F8E4D2 /* Document.xcdatamodeld */,
 				B7E3644A1B41743000F8E4D2 /* Supporting Files */,
+				B7E364711B41783400F8E4D2 /* Character.swift */,
 			);
 			path = Macsterplan;
 			sourceTree = "<group>";
@@ -102,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				B7E364641B41743000F8E4D2 /* MacsterplanTests.swift */,
+				B7E364731B41784700F8E4D2 /* CharacterTest.swift */,
 				B7E364621B41743000F8E4D2 /* Supporting Files */,
 			);
 			path = MacsterplanTests;
@@ -216,6 +222,7 @@
 			files = (
 				B7E364541B41743000F8E4D2 /* Document.xcdatamodeld in Sources */,
 				B7E3644F1B41743000F8E4D2 /* ViewController.swift in Sources */,
+				B7E364721B41783400F8E4D2 /* Character.swift in Sources */,
 				B7E3644D1B41743000F8E4D2 /* AppDelegate.swift in Sources */,
 				B7E364511B41743000F8E4D2 /* Document.swift in Sources */,
 			);
@@ -226,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7E364651B41743000F8E4D2 /* MacsterplanTests.swift in Sources */,
+				B7E364741B41784700F8E4D2 /* CharacterTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +416,7 @@
 				B7E3646A1B41743000F8E4D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B7E3646B1B41743000F8E4D2 /* Build configuration list for PBXNativeTarget "MacsterplanTests" */ = {
 			isa = XCConfigurationList;
@@ -416,6 +425,7 @@
 				B7E3646D1B41743000F8E4D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -8,6 +8,7 @@
 
 import Cocoa
 import XCTest
+import Macsterplan
 
 class CharacterTest: XCTestCase {
 
@@ -25,6 +26,24 @@ class CharacterTest: XCTestCase {
         // This is an example of a functional test case.
         XCTAssert(true, "Pass")
     }
+    
+    func testCharacterCanBeCreated() {
+        let aCharacter = Character()
+        XCTAssertNotNil(aCharacter, "Cannot find instance of Character")
+    }
+    
+    func testCharacterCanBeRenamed() {
+        var aCharacter = Character()
+        aCharacter.name = "Bob Whimsy"
+        XCTAssertEqual(aCharacter.name, "Bob Whimsy", "Cannot alter character name")
+    }
+    
+    func testCharacterCanHaveBio() {
+        var aCharacter = Character()
+        aCharacter.bio = "This is my bio."
+        XCTAssertEqual(aCharacter.bio, "This is my bio.", "Cannot update bio")
+    }
+    
 
     func testPerformanceExample() {
         // This is an example of a performance test case.

@@ -8,6 +8,10 @@
 
 import Cocoa
 
-class Character: NSObject {
+public class Character: NSObject {
+    
+    public var name: String = ""
+    public var bio: String = ""
+    
 
 }
