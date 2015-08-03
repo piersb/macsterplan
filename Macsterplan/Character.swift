@@ -12,6 +12,9 @@ public class Character: NSObject {
     
     public var name: String = ""
     public var bio: String = ""
+    public var player: String = ""
+    public var type: String = ""
+    
     
 
 }

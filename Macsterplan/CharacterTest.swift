@@ -22,10 +22,6 @@ class CharacterTest: XCTestCase {
         super.tearDown()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
     
     func testCharacterCanBeCreated() {
         let aCharacter = Character()
@@ -43,6 +39,17 @@ class CharacterTest: XCTestCase {
         aCharacter.bio = "This is my bio."
         XCTAssertEqual(aCharacter.bio, "This is my bio.", "Cannot update bio")
     }
+    
+    func testCharacterCanHavePlayer() {
+        var aCharacter = Character()
+        aCharacter.player = "Piers"
+        XCTAssertEqual(aCharacter.player, "Piers", "Cannot give Character to Player")
+    }
+//    
+//    func testCharacterCanBePC() {
+//        var aCharacter = Character()
+//        XCTAssertEqual(aCharacter.type, "PC", "Cannot set Character as PC")
+//    }
     
 
     func testPerformanceExample() {
