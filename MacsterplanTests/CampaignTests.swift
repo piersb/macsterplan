@@ -14,18 +14,20 @@ class CampaignTests: XCTestCase {
     
     var aCampaign: Campaign!
     var aCharacter: gameCharacter!
-    var aSecondCharacter: gameCharacter!
     
     override func setUp() {
         super.setUp()
         self.aCampaign = Campaign()
         self.aCharacter = gameCharacter()
-        self.aSecondCharacter = gameCharacter()
 
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        
+        self.aCampaign = nil
+        self.aCharacter = nil
+
+        
         super.tearDown()
     }
 
@@ -35,25 +37,20 @@ class CampaignTests: XCTestCase {
     }
     
     func testCampaignCanHaveName() {
-
         aCampaign.name = "The Eyes of the Overworld"
         XCTAssertEqual(aCampaign.name, "The Eyes of the Overworld", "Campaign name cannot be set")
     }
     
     func testCampaignCanHavePlayerCharacter() {
-
         aCampaign.addCharacter (aCharacter, whoseTypeIs: "PC")
-        aCampaign.addCharacter(aSecondCharacter, whoseTypeIs: "NPC")
         XCTAssertTrue(aCampaign.isCharacterAPC (aCharacter), "PC is not showing up as a PC")
-        XCTAssertFalse(aCampaign.isCharacterAPC(aSecondCharacter), "NPC is showing up as PC")
+    }
+    
+    func testCampaignCanHaveNonPlayerCharacter() {
+        aCampaign.addCharacter(aCharacter, whoseTypeIs: "NPC")
+        XCTAssertFalse(aCampaign.isCharacterAPC(aCharacter), "NPC is showing up as PC")
     }
 
-    func testNPCisNotRecordedAsPC() {
-
-        let aCharacter = gameCharacter()
-        aCampaign.addCharacter (aCharacter, whoseTypeIs: "NPC")
-        XCTAssertFalse(aCampaign.isCharacterAPC (aCharacter), "PC is not showing up as a PC")
-    }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
