@@ -24,24 +24,24 @@ class CharacterTest: XCTestCase {
 
     
     func testCharacterCanBeCreated() {
-        let aCharacter = Character()
+        let aCharacter = gameCharacter()
         XCTAssertNotNil(aCharacter, "Cannot find instance of Character")
     }
     
     func testCharacterCanBeRenamed() {
-        var aCharacter = Character()
+        var aCharacter = gameCharacter()
         aCharacter.name = "Bob Whimsy"
         XCTAssertEqual(aCharacter.name, "Bob Whimsy", "Cannot alter character name")
     }
     
     func testCharacterCanHaveBio() {
-        var aCharacter = Character()
+        var aCharacter = gameCharacter()
         aCharacter.bio = "This is my bio."
         XCTAssertEqual(aCharacter.bio, "This is my bio.", "Cannot update bio")
     }
     
     func testCharacterCanHavePlayer() {
-        var aCharacter = Character()
+        var aCharacter = gameCharacter()
         aCharacter.player = "Piers"
         XCTAssertEqual(aCharacter.player, "Piers", "Cannot give Character to Player")
     }

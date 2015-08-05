@@ -11,10 +11,17 @@ import XCTest
 import Macsterplan
 
 class CampaignTests: XCTestCase {
-
+    
+    var aCampaign: Campaign!
+    var aCharacter: gameCharacter!
+    var aSecondCharacter: gameCharacter!
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        self.aCampaign = Campaign()
+        self.aCharacter = gameCharacter()
+        self.aSecondCharacter = gameCharacter()
+
     }
     
     override func tearDown() {
@@ -23,26 +30,27 @@ class CampaignTests: XCTestCase {
     }
 
     func testCampaignCanBeCreated() {
-        let aCampaign = Campaign()
+
         XCTAssertNotNil(aCampaign, "Campaign cannot be created")
     }
     
     func testCampaignCanHaveName() {
-        let aCampaign = Campaign()
+
         aCampaign.name = "The Eyes of the Overworld"
         XCTAssertEqual(aCampaign.name, "The Eyes of the Overworld", "Campaign name cannot be set")
     }
     
     func testCampaignCanHavePlayerCharacter() {
-        let aCampaign = Campaign()
-        let aCharacter = Character()
+
         aCampaign.addCharacter (aCharacter, whoseTypeIs: "PC")
+        aCampaign.addCharacter(aSecondCharacter, whoseTypeIs: "NPC")
         XCTAssertTrue(aCampaign.isCharacterAPC (aCharacter), "PC is not showing up as a PC")
+        XCTAssertFalse(aCampaign.isCharacterAPC(aSecondCharacter), "NPC is showing up as PC")
     }
 
     func testNPCisNotRecordedAsPC() {
-        let aCampaign = Campaign()
-        let aCharacter = Character()
+
+        let aCharacter = gameCharacter()
         aCampaign.addCharacter (aCharacter, whoseTypeIs: "NPC")
         XCTAssertFalse(aCampaign.isCharacterAPC (aCharacter), "PC is not showing up as a PC")
     }

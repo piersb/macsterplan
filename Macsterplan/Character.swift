@@ -8,7 +8,7 @@
 
 import Cocoa
 
-public class Character: NSObject {
+public class gameCharacter: NSObject {
     
     public var name: String = ""
     public var bio: String = ""

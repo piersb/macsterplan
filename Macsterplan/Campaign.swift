@@ -11,15 +11,15 @@ import Cocoa
 public class Campaign: NSObject {
 
     public var name: String = ""
-    var playerCharacters = Set<Character>()
+    var playerCharacters = Set<gameCharacter>()
     
-    public func addCharacter (aCharacter: Character, whoseTypeIs: String) {
+    public func addCharacter (aCharacter: gameCharacter, whoseTypeIs: String) {
         if (whoseTypeIs == "PC") {
             playerCharacters.insert(aCharacter)
         }
     }
     
-    public func isCharacterAPC (aCharacter:Character) -> Bool {
+    public func isCharacterAPC (aCharacter: gameCharacter) -> Bool {
         if playerCharacters.contains (aCharacter) {
             return true
         }
