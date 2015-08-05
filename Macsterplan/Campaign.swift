@@ -12,6 +12,7 @@ public class Campaign: NSObject {
 
     public var name: String = ""
     var playerCharacters = Set<gameCharacter>()
+    var players = Set<Player>()
     
     public func addCharacter (aCharacter: gameCharacter, whoseTypeIs: String) {
         if (whoseTypeIs == "PC") {
@@ -21,6 +22,17 @@ public class Campaign: NSObject {
     
     public func isCharacterAPC (aCharacter: gameCharacter) -> Bool {
         if playerCharacters.contains (aCharacter) {
+            return true
+        }
+        return false
+    }
+    
+    public func addPlayer (aPlayer: Player) {
+        players.insert(aPlayer)
+    }
+    
+    public func isPlayerInCampaign (aPlayer: Player) -> Bool {
+        if players.contains (aPlayer) {
             return true
         }
         return false

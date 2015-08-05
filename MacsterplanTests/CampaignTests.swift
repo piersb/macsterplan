@@ -14,11 +14,13 @@ class CampaignTests: XCTestCase {
     
     var aCampaign: Campaign!
     var aCharacter: gameCharacter!
+    var aPlayer: Player!
     
     override func setUp() {
         super.setUp()
         self.aCampaign = Campaign()
         self.aCharacter = gameCharacter()
+        self.aPlayer = Player()
 
     }
     
@@ -26,6 +28,7 @@ class CampaignTests: XCTestCase {
         
         self.aCampaign = nil
         self.aCharacter = nil
+        self.aPlayer = nil
 
         
         super.tearDown()
@@ -51,6 +54,11 @@ class CampaignTests: XCTestCase {
         XCTAssertFalse(aCampaign.isCharacterAPC(aCharacter), "NPC is showing up as PC")
     }
 
+    
+    func testCampaignCanAddPlayer() {
+        aCampaign.addPlayer(aPlayer)
+        aCampaign.isPlayerInCampaign(aPlayer)
+    }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

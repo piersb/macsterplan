@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B749A3AD1B72C746001739AE /* CampaignTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B749A3AC1B72C746001739AE /* CampaignTests.swift */; };
 		B7711EC31B701938008E9012 /* PlayerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7711EC21B701938008E9012 /* PlayerTest.swift */; };
 		B7711EC51B70199B008E9012 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7711EC41B70199B008E9012 /* Player.swift */; };
 		B7711EC71B701B55008E9012 /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7711EC61B701B55008E9012 /* Campaign.swift */; };
-		B7711EC91B701B7A008E9012 /* CampaignTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7711EC81B701B7A008E9012 /* CampaignTests.swift */; };
 		B7E3644D1B41743000F8E4D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3644C1B41743000F8E4D2 /* AppDelegate.swift */; };
 		B7E3644F1B41743000F8E4D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3644E1B41743000F8E4D2 /* ViewController.swift */; };
 		B7E364511B41743000F8E4D2 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E364501B41743000F8E4D2 /* Document.swift */; };
@@ -33,10 +33,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B749A3AC1B72C746001739AE /* CampaignTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignTests.swift; sourceTree = "<group>"; };
 		B7711EC21B701938008E9012 /* PlayerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTest.swift; sourceTree = "<group>"; };
 		B7711EC41B70199B008E9012 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		B7711EC61B701B55008E9012 /* Campaign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
-		B7711EC81B701B7A008E9012 /* CampaignTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignTests.swift; sourceTree = "<group>"; };
 		B7E364471B41743000F8E4D2 /* Macsterplan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Macsterplan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E3644B1B41743000F8E4D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7E3644C1B41743000F8E4D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 				B7E364641B41743000F8E4D2 /* MacsterplanTests.swift */,
 				B7E364731B41784700F8E4D2 /* CharacterTest.swift */,
 				B7711EC21B701938008E9012 /* PlayerTest.swift */,
-				B7711EC81B701B7A008E9012 /* CampaignTests.swift */,
+				B749A3AC1B72C746001739AE /* CampaignTests.swift */,
 			);
 			path = MacsterplanTests;
 			sourceTree = "<group>";
@@ -247,7 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7E364651B41743000F8E4D2 /* MacsterplanTests.swift in Sources */,
-				B7711EC91B701B7A008E9012 /* CampaignTests.swift in Sources */,
+				B749A3AD1B72C746001739AE /* CampaignTests.swift in Sources */,
 				B7711EC31B701938008E9012 /* PlayerTest.swift in Sources */,
 				B7E364741B41784700F8E4D2 /* CharacterTest.swift in Sources */,
 			);
