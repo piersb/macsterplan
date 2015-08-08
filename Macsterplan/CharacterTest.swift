@@ -12,36 +12,38 @@ import Macsterplan
 
 class CharacterTest: XCTestCase {
 
+    var aCharacter: gameCharacter!
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+
+        self.aCharacter = gameCharacter()
+        
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+
+        aCharacter = nil
+        
         super.tearDown()
     }
 
     
     func testCharacterCanBeCreated() {
-        let aCharacter = gameCharacter()
         XCTAssertNotNil(aCharacter, "Cannot find instance of Character")
     }
     
     func testCharacterCanBeRenamed() {
-        var aCharacter = gameCharacter()
         aCharacter.name = "Bob Whimsy"
         XCTAssertEqual(aCharacter.name, "Bob Whimsy", "Cannot alter character name")
     }
     
     func testCharacterCanHaveBio() {
-        var aCharacter = gameCharacter()
         aCharacter.bio = "This is my bio."
         XCTAssertEqual(aCharacter.bio, "This is my bio.", "Cannot update bio")
     }
     
     func testCharacterCanHavePlayer() {
-        var aCharacter = gameCharacter()
         aCharacter.player = "Piers"
         XCTAssertEqual(aCharacter.player, "Piers", "Cannot give Character to Player")
     }
