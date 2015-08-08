@@ -10,11 +10,15 @@ import Cocoa
 
 public class gameCharacter: NSObject {
     
+    public enum possibleCharacterTypes {
+        case PC
+        case NPC
+    }
+    
     public var name: String = ""
     public var bio: String = ""
     public var player: String = ""
-    public var type: String = ""
-    
-    
+    public var type: possibleCharacterTypes = .NPC
+        
 
 }

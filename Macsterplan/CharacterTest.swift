@@ -47,11 +47,16 @@ class CharacterTest: XCTestCase {
         aCharacter.player = "Piers"
         XCTAssertEqual(aCharacter.player, "Piers", "Cannot give Character to Player")
     }
-//    
-//    func testCharacterCanBePC() {
-//        var aCharacter = Character()
-//        XCTAssertEqual(aCharacter.type, "PC", "Cannot set Character as PC")
-//    }
+    
+    func testCharacterCanBePC() {
+        aCharacter.type = .PC
+        XCTAssertEqual(aCharacter.type, .PC, "Cannot set Character as PC")
+    }
+    
+    func testCharacterCanBeNPC() {
+        aCharacter.type = .NPC
+        XCTAssertEqual(aCharacter.type, .NPC, "Cannot set Character as NPC")
+    }
     
 
     func testPerformanceExample() {
