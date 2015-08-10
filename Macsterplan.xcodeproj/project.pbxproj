@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		B749A3AD1B72C746001739AE /* CampaignTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B749A3AC1B72C746001739AE /* CampaignTests.swift */; };
 		B7711EC31B701938008E9012 /* PlayerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7711EC21B701938008E9012 /* PlayerTest.swift */; };
-		B7711EC71B701B55008E9012 /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7711EC61B701B55008E9012 /* Campaign.swift */; };
 		B79A52211B78EB0E00A4162C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B79A521F1B78EB0E00A4162C /* Model.xcdatamodeld */; };
 		B79A52551B79194D00A4162C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79A52541B79194D00A4162C /* Player.swift */; };
 		B79A525D1B792D2400A4162C /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79A525C1B792D2400A4162C /* Character.swift */; };
 		B79A525F1B792DB500A4162C /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79A525E1B792DB500A4162C /* CoreDataHelper.swift */; };
+		B79A52631B793C2200A4162C /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79A52621B793C2200A4162C /* Campaign.swift */; };
 		B7E3644D1B41743000F8E4D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3644C1B41743000F8E4D2 /* AppDelegate.swift */; };
 		B7E3644F1B41743000F8E4D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3644E1B41743000F8E4D2 /* ViewController.swift */; };
 		B7E364511B41743000F8E4D2 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E364501B41743000F8E4D2 /* Document.swift */; };
@@ -37,11 +37,11 @@
 /* Begin PBXFileReference section */
 		B749A3AC1B72C746001739AE /* CampaignTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignTests.swift; sourceTree = "<group>"; };
 		B7711EC21B701938008E9012 /* PlayerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTest.swift; sourceTree = "<group>"; };
-		B7711EC61B701B55008E9012 /* Campaign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
 		B79A52201B78EB0E00A4162C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B79A52541B79194D00A4162C /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		B79A525C1B792D2400A4162C /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		B79A525E1B792DB500A4162C /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		B79A52621B793C2200A4162C /* Campaign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
 		B7E364471B41743000F8E4D2 /* Macsterplan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Macsterplan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E3644B1B41743000F8E4D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7E3644C1B41743000F8E4D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,8 +104,8 @@
 				B7E364521B41743000F8E4D2 /* Document.xcdatamodeld */,
 				B7E3644A1B41743000F8E4D2 /* Supporting Files */,
 				B79A52541B79194D00A4162C /* Player.swift */,
+				B79A52621B793C2200A4162C /* Campaign.swift */,
 				B79A525C1B792D2400A4162C /* Character.swift */,
-				B7711EC61B701B55008E9012 /* Campaign.swift */,
 			);
 			path = Macsterplan;
 			sourceTree = "<group>";
@@ -239,9 +239,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B79A525D1B792D2400A4162C /* Character.swift in Sources */,
+				B79A52631B793C2200A4162C /* Campaign.swift in Sources */,
 				B7E364541B41743000F8E4D2 /* Document.xcdatamodeld in Sources */,
 				B7E3644F1B41743000F8E4D2 /* ViewController.swift in Sources */,
-				B7711EC71B701B55008E9012 /* Campaign.swift in Sources */,
 				B79A52211B78EB0E00A4162C /* Model.xcdatamodeld in Sources */,
 				B79A52551B79194D00A4162C /* Player.swift in Sources */,
 				B7E3644D1B41743000F8E4D2 /* AppDelegate.swift in Sources */,
