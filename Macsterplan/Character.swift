@@ -1,24 +1,17 @@
 //
 //  Character.swift
-//  Macsterplan
+//  
 //
-//  Created by Piers Beckley on 29/06/2015.
-//  Copyright (c) 2015 Piers Beckley. All rights reserved.
+//  Created by Piers Beckley on 10/08/2015.
+//
 //
 
-import Cocoa
+import Foundation
+import CoreData
 
-public class gameCharacter: NSObject {
-    
-    public enum possibleCharacterTypes {
-        case PC
-        case NPC
-    }
-    
-    public var name: String = ""
-    public var bio: String = ""
-    public var player: String = ""
-    public var type: possibleCharacterTypes = .NPC
-        
+public class Character: NSManagedObject {
+
+    @NSManaged var name: String
+    @NSManaged var bio: String
 
 }
