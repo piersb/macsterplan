@@ -18,7 +18,7 @@ class PlayerTest: XCTestCase {
         super.setUp()
         
         // set up our core data, and create a player entry
-        let managedObjectContext = setUpInMemoryManagedObjectContext()
+        let managedObjectContext = CoreDataHelper().setUpInMemoryManagedObjectContext()
         let entityDescription = NSEntityDescription.entityForName("Player", inManagedObjectContext: managedObjectContext)
         aPlayer = Player(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
         
@@ -30,19 +30,6 @@ class PlayerTest: XCTestCase {
         super.tearDown()
     }
     
-    func setUpInMemoryManagedObjectContext() -> NSManagedObjectContext {
-        
-        // we need to create an in memory store to test core data
-        let managedObjectModel = NSManagedObjectModel.mergedModelFromBundles([NSBundle.mainBundle()])!
-        
-        let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
-        persistentStoreCoordinator.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: nil)
-        
-        let managedObjectContext = NSManagedObjectContext()
-        managedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator
-        
-        return managedObjectContext
-    }
 
     func testPlayerExists() {
         XCTAssertNotNil(aPlayer, "Can't create player in Core Data")

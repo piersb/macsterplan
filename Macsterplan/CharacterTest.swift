@@ -16,8 +16,11 @@ class CharacterTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
-
-        self.aCharacter = gameCharacter()
+        
+        // set up our core data, and create a character entry
+        let managedObjectContext = setUpInMemoryManagedObjectContext()
+        let entityDescription = NSEntityDescription.entityForName("Player", inManagedObjectContext: managedObjectContext)
+        aCharacter = Player(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
         
     }
     
