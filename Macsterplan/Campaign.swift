@@ -13,6 +13,14 @@ public class Campaign: NSManagedObject {
 
     @NSManaged public var name: String
     @NSManaged public var character: NSSet
-    @NSManaged public var player: NSSet
+    @NSManaged public var player: Set<Player>
 
+    
+    public func addPlayer (aPlayer: Player) {
+            player.insert (aPlayer)
+    }
+    
+    
+    
+    
 }
