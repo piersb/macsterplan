@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-public class Character: NSManagedObject {
+public class GameCharacter: NSManagedObject {
 
     @NSManaged var name: String
     @NSManaged var bio: String

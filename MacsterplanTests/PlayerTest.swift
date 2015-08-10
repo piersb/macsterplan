@@ -18,7 +18,7 @@ class PlayerTest: XCTestCase {
         super.setUp()
         
         // set up our core data, and create a player entry
-        let managedObjectContext = CoreDataHelper().setUpInMemoryManagedObjectContext()
+        let managedObjectContext = CoreDataHelper.setUpInMemoryManagedObjectContext()
         let entityDescription = NSEntityDescription.entityForName("Player", inManagedObjectContext: managedObjectContext)
         aPlayer = Player(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
         

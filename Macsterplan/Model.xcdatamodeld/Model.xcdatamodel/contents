@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Campaign" syncable="YES"/>
-    <entity name="Character" representedClassName="Macsterplan.Character" syncable="YES">
+    <entity name="Campaign" syncable="YES">
+        <relationship name="character" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="campaign" inverseEntity="Character" syncable="YES"/>
+        <relationship name="player" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="campaign" inverseEntity="Player" syncable="YES"/>
+    </entity>
+    <entity name="Character" representedClassName="Macsterplan.GameCharacter" syncable="YES">
         <attribute name="bio" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="campaign" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Campaign" inverseName="character" inverseEntity="Campaign" syncable="YES"/>
+        <relationship name="player" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="character" inverseEntity="Player" syncable="YES"/>
     </entity>
     <entity name="Player" representedClassName="Macsterplan.Player" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="campaign" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Campaign" inverseName="player" inverseEntity="Campaign" syncable="YES"/>
+        <relationship name="character" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="player" inverseEntity="Character" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Character" positionX="-36" positionY="9" width="128" height="75"/>
-        <element name="Player" positionX="0" positionY="54" width="128" height="60"/>
-        <element name="Campaign" positionX="27" positionY="81" width="128" height="45"/>
+        <element name="Character" positionX="-441" positionY="-135" width="128" height="103"/>
+        <element name="Player" positionX="-468" positionY="108" width="128" height="88"/>
+        <element name="Campaign" positionX="27" positionY="81" width="128" height="73"/>
     </elements>
 </model>

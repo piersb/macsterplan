@@ -9,9 +9,9 @@
 import Cocoa
 import XCTest
 
-public class CoreDataHelper: XCTestCase {
+class CoreDataHelper: XCTestCase {
     
-    public func setUpInMemoryManagedObjectContext() -> NSManagedObjectContext {
+    static func setUpInMemoryManagedObjectContext() -> NSManagedObjectContext {
         
         // we need to create an in memory store to test core data
         let managedObjectModel = NSManagedObjectModel.mergedModelFromBundles([NSBundle.mainBundle()])!
