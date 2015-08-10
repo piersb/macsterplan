@@ -9,9 +9,10 @@
 import Foundation
 import CoreData
 
-class Campaign: NSManagedObject {
+public class Campaign: NSManagedObject {
 
-    @NSManaged var character: NSSet
-    @NSManaged var player: NSSet
+    @NSManaged public var name: String
+    @NSManaged public var character: NSSet
+    @NSManaged public var player: NSSet
 
 }
