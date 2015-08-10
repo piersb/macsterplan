@@ -9,8 +9,8 @@
 import Foundation
 import CoreData
 
-public class Player: NSManagedObject {
+class Player: NSManagedObject {
 
-    @NSManaged public var name: String
+    @NSManaged var name: String
 
 }

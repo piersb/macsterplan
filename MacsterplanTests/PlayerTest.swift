@@ -11,15 +11,30 @@ import XCTest
 import Macsterplan
 
 class PlayerTest: XCTestCase {
-
+    
+    
+   
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+    }
+    
+    func setUpInMemoryManagedObjectContext() -> NSManagedObjectContext {
+        let managedObjectModel = NSManagedObjectModel.mergedModelFromBundles([NSBundle.mainBundle()])!
+        
+        let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
+        persistentStoreCoordinator.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: nil)
+        
+        let managedObjectContext = NSManagedObjectContext()
+        managedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator
+        
+        return managedObjectContext
     }
 
     func testPlayerExists() {
@@ -28,9 +43,12 @@ class PlayerTest: XCTestCase {
     }
     
     func testPlayerHasName() {
-        var aPlayer = Player()
+        let managedObjectContext = setUpInMemoryManagedObjectContext()
+        let entityDescription = NSEntityDescription.entityForName("Player", inManagedObjectContext: managedObjectContext)
+        let aPlayer = Player(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+        
         aPlayer.name = "Iain Coleman"
-        XCTAssertEqual (aPlayer.name, "Iain Coleman", "Can't rename Player")
+        XCTAssertEqual(aPlayer.name, "Iain Coleman", "Can't set player name")
     }
     
 
