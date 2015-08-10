@@ -12,11 +12,15 @@ import Macsterplan
 
 class PlayerTest: XCTestCase {
     
-    
+    var aPlayer: Player!
    
     override func setUp() {
         super.setUp()
         
+        // set up our core data, and create a player entry
+        let managedObjectContext = setUpInMemoryManagedObjectContext()
+        let entityDescription = NSEntityDescription.entityForName("Player", inManagedObjectContext: managedObjectContext)
+        aPlayer = Player(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
         
     }
     
@@ -26,6 +30,8 @@ class PlayerTest: XCTestCase {
     }
     
     func setUpInMemoryManagedObjectContext() -> NSManagedObjectContext {
+        
+        // we need to create an in memory store to test core data
         let managedObjectModel = NSManagedObjectModel.mergedModelFromBundles([NSBundle.mainBundle()])!
         
         let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
@@ -38,15 +44,11 @@ class PlayerTest: XCTestCase {
     }
 
     func testPlayerExists() {
-        var aPlayer = Player()
-        XCTAssertNotNil(aPlayer, "Can't create player")
+        XCTAssertNotNil(aPlayer, "Can't create player in Core Data")
     }
     
     func testPlayerHasName() {
-        let managedObjectContext = setUpInMemoryManagedObjectContext()
-        let entityDescription = NSEntityDescription.entityForName("Player", inManagedObjectContext: managedObjectContext)
-        let aPlayer = Player(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
-        
+ 
         aPlayer.name = "Iain Coleman"
         XCTAssertEqual(aPlayer.name, "Iain Coleman", "Can't set player name")
     }
