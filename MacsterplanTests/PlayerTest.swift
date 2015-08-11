@@ -42,13 +42,7 @@ class PlayerTest: XCTestCase {
         XCTAssertEqual(aPlayer.name, "Iain Coleman", "Can't set player name")
     }
     
-    func testRetrieveListofPlayers() {
-        aPlayer.name = "Iain Coleman"
-        anotherPlayer.name = "Binky Bird"
-        var players = [Player]()
-        var fetchRequest = NSFetchRequest (entityName: "Player")
 
-    }
     
 
     func testPerformanceExample() {

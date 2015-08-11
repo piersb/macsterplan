@@ -45,7 +45,6 @@ class CampaignTests: XCTestCase {
 
     
     func testCampaignCanBeCreated() {
-
         XCTAssertNotNil(aCampaign, "Campaign cannot be created")
     }
     
@@ -66,9 +65,13 @@ class CampaignTests: XCTestCase {
     
     func testCampaignCanAddPlayer() {
         aCampaign.addPlayer(aPlayer)
-        XCTAssertTrue(aCampaign.isPlayerInCampaign (aPlayer), "Player has not been successfully added to Campaign")
+        aCampaign.listPlayers()
     }
 
+    func testCampaignHasCreationDate() {
+        
+        NSLog("%@", aCampaign.dateCreated)
+    }
     
    
     
