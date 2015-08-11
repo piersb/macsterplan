@@ -16,8 +16,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         
-//        self.test()
-//        self.testMore()
         
     }
     

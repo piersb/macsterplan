@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B749A3AD1B72C746001739AE /* CampaignTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B749A3AC1B72C746001739AE /* CampaignTests.swift */; };
 		B7711EC31B701938008E9012 /* PlayerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7711EC21B701938008E9012 /* PlayerTest.swift */; };
-		B78F90471B7A1C7500E87240 /* TestSomeStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78F90461B7A1C7500E87240 /* TestSomeStuff.swift */; };
 		B79A52211B78EB0E00A4162C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B79A521F1B78EB0E00A4162C /* Model.xcdatamodeld */; };
 		B79A52551B79194D00A4162C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79A52541B79194D00A4162C /* Player.swift */; };
 		B79A525D1B792D2400A4162C /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79A525C1B792D2400A4162C /* Character.swift */; };
@@ -37,7 +36,6 @@
 /* Begin PBXFileReference section */
 		B749A3AC1B72C746001739AE /* CampaignTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignTests.swift; sourceTree = "<group>"; };
 		B7711EC21B701938008E9012 /* PlayerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTest.swift; sourceTree = "<group>"; };
-		B78F90461B7A1C7500E87240 /* TestSomeStuff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSomeStuff.swift; sourceTree = "<group>"; };
 		B79A52201B78EB0E00A4162C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B79A52541B79194D00A4162C /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		B79A525C1B792D2400A4162C /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				B7E3644C1B41743000F8E4D2 /* AppDelegate.swift */,
-				B78F90461B7A1C7500E87240 /* TestSomeStuff.swift */,
 				B79A521F1B78EB0E00A4162C /* Model.xcdatamodeld */,
 				B7E3644E1B41743000F8E4D2 /* ViewController.swift */,
 				B7E364501B41743000F8E4D2 /* Document.swift */,
@@ -243,7 +240,6 @@
 				B7E364541B41743000F8E4D2 /* Document.xcdatamodeld in Sources */,
 				B7E3644F1B41743000F8E4D2 /* ViewController.swift in Sources */,
 				B79A52211B78EB0E00A4162C /* Model.xcdatamodeld in Sources */,
-				B78F90471B7A1C7500E87240 /* TestSomeStuff.swift in Sources */,
 				B79A52551B79194D00A4162C /* Player.swift in Sources */,
 				B7E3644D1B41743000F8E4D2 /* AppDelegate.swift in Sources */,
 				B7E364511B41743000F8E4D2 /* Document.swift in Sources */,
