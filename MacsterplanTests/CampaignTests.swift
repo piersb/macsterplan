@@ -76,27 +76,20 @@ class CampaignTests: XCTestCase {
         aCampaign.name = "The Eyes of the Overworld"
         XCTAssertEqual(aCampaign.name, "The Eyes of the Overworld", "Campaign name cannot be set")
     }
-//    
-//    func testCampaignCanHavePlayerCharacter() {
-//        aCampaign.addCharacter (aCharacter, whoseTypeIs: "PC")
-//        XCTAssertTrue(aCampaign.isCharacterAPC (aCharacter), "PC is not showing up as a PC")
-//    }
-//    
-//    func testCampaignCanHaveNonPlayerCharacter() {
-//        aCampaign.addCharacter(aCharacter, whoseTypeIs: "NPC")
-//        XCTAssertFalse(aCampaign.isCharacterAPC(aCharacter), "NPC is showing up as PC")
-//    }
     
     func testCampaignCanAddPlayer() {
-//        aCampaign.addPlayer(aPlayer)
-//        aCampaign.listPlayers()
+        aCampaign.addPlayer(aPlayer)
+        XCTAssertTrue(aCampaign.mutableSetValueForKey("players").containsObject(aPlayer), "Player not successfully added to Campaign")
+    }
+    
+    func testCampaignCanListPlayers() {
+        
     }
 
     func testCampaignHasCreationDate() {
         // there's probably a better way of testing the date can be set correctly
         XCTAssertTrue(aPlayer.dateCreated?.timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate , "It was somehow created in the future")    }
     
-   
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

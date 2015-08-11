@@ -33,11 +33,7 @@ public class Campaign: NSManagedObject {
 
     public func addPlayer (aNewPlayer: Player) {
         var items = self.mutableSetValueForKey("players");
-
         items.addObject(aNewPlayer)
-        
-        println(players)
-
     }
 
     public func listPlayers () {
