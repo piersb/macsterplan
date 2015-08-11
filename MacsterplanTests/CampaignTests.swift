@@ -43,11 +43,6 @@ class CampaignTests: XCTestCase {
         super.tearDown()
     }
 
-    func testPlayerHasName() {
-        
-        aPlayer.name = "Iain Coleman"
-        XCTAssertEqual(aPlayer.name, "Iain Coleman", "Can't set player name")
-    }
     
     func testCampaignCanBeCreated() {
 
@@ -71,8 +66,11 @@ class CampaignTests: XCTestCase {
     
     func testCampaignCanAddPlayer() {
         aCampaign.addPlayer(aPlayer)
-        aCampaign.isPlayerInCampaign(aPlayer)
+        XCTAssertTrue(aCampaign.isPlayerInCampaign (aPlayer), "Player has not been successfully added to Campaign")
     }
+
+    
+   
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

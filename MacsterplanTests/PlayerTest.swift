@@ -13,6 +13,7 @@ import Macsterplan
 class PlayerTest: XCTestCase {
     
     var aPlayer: Player!
+    var anotherPlayer: Player!
    
     override func setUp() {
         super.setUp()
@@ -20,7 +21,8 @@ class PlayerTest: XCTestCase {
         // set up our core data, and create a player entry
         let managedObjectContext = CoreDataHelper.setUpInMemoryManagedObjectContext()
         let entityDescription = NSEntityDescription.entityForName("Player", inManagedObjectContext: managedObjectContext)
-        aPlayer = Player(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+        aPlayer = Player (entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+        anotherPlayer = Player (entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
         
     }
     
@@ -36,9 +38,16 @@ class PlayerTest: XCTestCase {
     }
     
     func testPlayerHasName() {
- 
         aPlayer.name = "Iain Coleman"
         XCTAssertEqual(aPlayer.name, "Iain Coleman", "Can't set player name")
+    }
+    
+    func testRetrieveListofPlayers() {
+        aPlayer.name = "Iain Coleman"
+        anotherPlayer.name = "Binky Bird"
+        var players = [Player]()
+        var fetchRequest = NSFetchRequest (entityName: "Player")
+
     }
     
 
