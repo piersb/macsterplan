@@ -12,23 +12,49 @@ import Macsterplan
 
 class PlayerTest: XCTestCase {
     
+    
+    // setting up our core data variables
+    var managedObjectModel: NSManagedObjectModel!
+    var persistentStoreCoordinator: NSPersistentStoreCoordinator!
+    var managedObjectContext: NSManagedObjectContext!
+    var playerDescription: NSEntityDescription!
+    
+    
     var aPlayer: Player!
     var anotherPlayer: Player!
    
     override func setUp() {
         super.setUp()
         
-        // set up our core data, and create a player entry
-        let managedObjectContext = CoreDataHelper.setUpInMemoryManagedObjectContext()
-        let entityDescription = NSEntityDescription.entityForName("Player", inManagedObjectContext: managedObjectContext)
-        aPlayer = Player (entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
-        anotherPlayer = Player (entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+        // we need to create an in memory store to test core data
+        managedObjectModel = NSManagedObjectModel.mergedModelFromBundles([NSBundle.mainBundle()])!
+        
+        persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
+        persistentStoreCoordinator.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: nil)
+        
+        managedObjectContext = NSManagedObjectContext()
+        managedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator
+        
+        playerDescription = NSEntityDescription.entityForName("Player", inManagedObjectContext: managedObjectContext)
+        
+        //here are our test entities
+        aPlayer = Player (entity: playerDescription!, insertIntoManagedObjectContext: managedObjectContext)
+        anotherPlayer = Player (entity: playerDescription!, insertIntoManagedObjectContext: managedObjectContext)
         
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        // tear down our test entities
         aPlayer = nil
+        anotherPlayer = nil
+    
+        // tear down our core data stack
+        managedObjectModel = nil
+        persistentStoreCoordinator = nil
+        managedObjectContext = nil
+        playerDescription = nil
+        
+        
         super.tearDown()
     }
     
@@ -39,9 +65,13 @@ class PlayerTest: XCTestCase {
     
     func testPlayerHasName() {
         aPlayer.name = "Iain Coleman"
-        XCTAssertEqual(aPlayer.name, "Iain Coleman", "Can't set player name")
+        XCTAssertEqual(aPlayer.name!, "Iain Coleman", "Can't set player name")
     }
     
+    func testPlayerHasCreationDate() {
+        // there's probably a better way of testing the date can be set correctly
+        XCTAssertTrue(aPlayer.dateCreated?.timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate , "It was somehow created in the future")
+    }
 
     
 

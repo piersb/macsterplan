@@ -34,7 +34,9 @@ public class Campaign: NSManagedObject {
     public func addPlayer (aNewPlayer: Player) {
         var items = self.mutableSetValueForKey("players");
 
-            items.addObject(aNewPlayer)
+        items.addObject(aNewPlayer)
+        
+        println(players)
 
     }
 
@@ -53,6 +55,16 @@ public class Campaign: NSManagedObject {
     public override func awakeFromInsert() {
         super.awakeFromInsert()
         self.dateCreated = NSDate()
+        players = Set<Player>()
+        
+        
+    }
+    
+    public override func awakeFromFetch() {
+        super.awakeFromFetch()
+        println("awaking from fetch")
+    
+        
     }
     
 }

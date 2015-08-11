@@ -17,8 +17,17 @@ class CharacterTest: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        // set up our core data, and create a character entry
-        let managedObjectContext = CoreDataHelper.setUpInMemoryManagedObjectContext()
+        // we need to create an in memory store to test core data
+        let managedObjectModel = NSManagedObjectModel.mergedModelFromBundles([NSBundle.mainBundle()])!
+        
+        let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
+        persistentStoreCoordinator.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: nil)
+        
+        let managedObjectContext = NSManagedObjectContext()
+        managedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator
+        
+        
+        // and here are our entities
         let entityDescription = NSEntityDescription.entityForName("Character", inManagedObjectContext: managedObjectContext)
                             // Can't see any way to rename the entity name from Character (reserved in most other places in Swift, hence less than ideal) to GameCharacter...
         aCharacter = GameCharacter(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
@@ -37,10 +46,10 @@ class CharacterTest: XCTestCase {
         XCTAssertNotNil(aCharacter, "Cannot find instance of Character")
     }
     
-//    func testCharacterCanBeRenamed() {
+    func testCharacterCanBeRenamed() {
 //        aCharacter.name = "Bob Whimsy"
 //        XCTAssertEqual(aCharacter.name, "Bob Whimsy", "Cannot alter character name")
-//    }
+    }
     
     
 //    

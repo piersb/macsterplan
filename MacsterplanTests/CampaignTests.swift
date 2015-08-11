@@ -12,6 +12,13 @@ import Macsterplan
 
 class CampaignTests: XCTestCase {
     
+    // setting up our core data variables
+    var managedObjectModel: NSManagedObjectModel!
+    var persistentStoreCoordinator: NSPersistentStoreCoordinator!
+    var managedObjectContext: NSManagedObjectContext!
+    
+    // setting up our test variables
+    
     var aCampaign: Campaign!
     var aCharacter: GameCharacter!
     var aPlayer: Player!
@@ -20,20 +27,30 @@ class CampaignTests: XCTestCase {
         super.setUp()
         
         // set up our core data, and create player, character, and campaign entries
-        let managedObjectContext = CoreDataHelper.setUpInMemoryManagedObjectContext()
-        
-        let playerDescription = NSEntityDescription.entityForName("Player", inManagedObjectContext: managedObjectContext)
-        aPlayer = Player(entity: playerDescription!, insertIntoManagedObjectContext: managedObjectContext)
-        
-        let characterDescription = NSEntityDescription.entityForName("Character", inManagedObjectContext: managedObjectContext)
-        aCharacter = GameCharacter(entity: characterDescription!, insertIntoManagedObjectContext: managedObjectContext)
-        
-        let campaignDescription = NSEntityDescription.entityForName("Campaign", inManagedObjectContext: managedObjectContext)
-        aCampaign = Campaign(entity: campaignDescription!, insertIntoManagedObjectContext: managedObjectContext)
+//        let managedObjectContext = CoreDataHelper.setUpInMemoryManagedObjectContext()
+//        
+//        let playerDescription = NSEntityDescription.entityForName("Player", inManagedObjectContext: managedObjectContext)
+//        aPlayer = Player(entity: playerDescription!, insertIntoManagedObjectContext: managedObjectContext)
+//        
+//        let characterDescription = NSEntityDescription.entityForName("Character", inManagedObjectContext: managedObjectContext)
+//        aCharacter = GameCharacter(entity: characterDescription!, insertIntoManagedObjectContext: managedObjectContext)
+//        
+//        let campaignDescription = NSEntityDescription.entityForName("Campaign", inManagedObjectContext: managedObjectContext)
+//        aCampaign = Campaign(entity: campaignDescription!, insertIntoManagedObjectContext: managedObjectContext)
+//        
+//        println("CHECKING OUT CAMPAIGN")
+//        println(aCampaign.dateCreated)
+//        
+//        managedObjectContext.save(nil)
 
     }
     
     override func tearDown() {
+        
+        // tear down our core data stack
+        managedObjectModel = nil
+        persistentStoreCoordinator = nil
+        managedObjectContext = nil       
         
         aCampaign = nil
         aCharacter = nil
@@ -45,6 +62,27 @@ class CampaignTests: XCTestCase {
 
     
     func testCampaignCanBeCreated() {
+
+        
+        let playerDescription = NSEntityDescription.entityForName("Player", inManagedObjectContext: managedObjectContext)
+        aPlayer = Player(entity: playerDescription!, insertIntoManagedObjectContext: managedObjectContext)
+        
+        let characterDescription = NSEntityDescription.entityForName("Character", inManagedObjectContext: managedObjectContext)
+        aCharacter = GameCharacter(entity: characterDescription!, insertIntoManagedObjectContext: managedObjectContext)
+        
+        let campaignDescription = NSEntityDescription.entityForName("Campaign", inManagedObjectContext: managedObjectContext)
+        aCampaign = Campaign(entity: campaignDescription!, insertIntoManagedObjectContext: managedObjectContext)
+        
+        println("CHECKING OUT CAMPAIGN")
+        println(aCampaign.dateCreated)
+        
+        managedObjectContext.save(nil)
+
+    }
+    
+    func testThingsAreNotPersistent() {
+        println("DOES IT PERSIST?")
+        println(aCampaign.dateCreated)
         XCTAssertNotNil(aCampaign, "Campaign cannot be created")
     }
     
@@ -64,13 +102,13 @@ class CampaignTests: XCTestCase {
 //    }
     
     func testCampaignCanAddPlayer() {
-        aCampaign.addPlayer(aPlayer)
-        aCampaign.listPlayers()
+//        aCampaign.addPlayer(aPlayer)
+//        aCampaign.listPlayers()
     }
 
     func testCampaignHasCreationDate() {
         
-        NSLog("%@", aCampaign.dateCreated)
+//        NSLog("%@", aCampaign.dateCreated)
     }
     
    
