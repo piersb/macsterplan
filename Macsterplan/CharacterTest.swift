@@ -71,10 +71,20 @@ class CharacterTest: XCTestCase {
     }
 
     
-//    func testCharacterCanHavePlayer() {
-//        aCharacter.player = "Piers"
-//        XCTAssertEqual(aCharacter.player, "Piers", "Cannot give Character to Player")
-//    }
+    func testCharacterCanBeAssignedToPlayer() {
+        
+        let entityDescription = NSEntityDescription.entityForName("Player", inManagedObjectContext: managedObjectContext)
+        // Can't see any way to rename the entity name from Character (reserved in most other places in Swift, hence less than ideal) to GameCharacter...
+        let aPlayer = Player(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+        
+        aCharacter.player = aPlayer
+        
+        // a character's player should now be set to the player
+        XCTAssertEqual(aCharacter.player!, aPlayer, "Cannot set Player for Character")
+        
+        // and that player should have this character set as one of their characters
+        XCTAssertTrue(aPlayer.characters!.contains(aCharacter), "Cannot set Character for Player")
+    }
 
     
     
@@ -83,15 +93,19 @@ class CharacterTest: XCTestCase {
         XCTAssertEqual(aCharacter.characterType!, "PC", "Cannot set Character as PC")
     }
     
+    func testCharacterCanBeNPC() {
+        aCharacter.characterType = "NPC"
+        XCTAssertEqual(aCharacter.characterType!, "NPC", "Cannot set Character as NPC")
+    }
+    
     func testCharacterCannotBeSomethingOtherThanPCorNPC () {
-//        XCTFail("Currently succeeding where it ought to fail") // might be that Core Data anly validates on save?
         aCharacter.characterType = "blargle!"
         var error : NSError? = nil
         if !aCharacter.managedObjectContext!.save(&error) {
             NSLog("Unresolved error \(error), \(error!.userInfo)")
-            abort()
+            XCTAssertNotNil(error, "Should throw error when confronted with a character type that's neither PC nor NPC")
         }
-//        XCTAssertTrue(<#expression: BooleanType#>, <#message: String#>)
+        
     }
     
 
