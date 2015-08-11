@@ -13,7 +13,7 @@ public class Campaign: NSManagedObject {
 
     @NSManaged public var name: String
     @NSManaged public var character: NSSet
-    @NSManaged public var players: NSSet?
+    @NSManaged public var players: Set<Player>?
     @NSManaged public var dateCreated: NSDate
 
 
@@ -36,8 +36,8 @@ public class Campaign: NSManagedObject {
         items.addObject(aNewPlayer)
     }
 
-    public func listPlayers () {
-        println("list of players: \(players)")
+    public func listPlayers () -> Set<Player> {
+        return players!
     }
     
     func removeList(values: NSSet) {

@@ -69,21 +69,30 @@ class CharacterTest: XCTestCase {
         aCharacter.bio = "This is my bio."
         XCTAssertEqual(aCharacter.bio!, "This is my bio.", "Cannot update bio")
     }
-//
+
+    
 //    func testCharacterCanHavePlayer() {
 //        aCharacter.player = "Piers"
 //        XCTAssertEqual(aCharacter.player, "Piers", "Cannot give Character to Player")
 //    }
-//    
-//    func testCharacterCanBePC() {
-//        aCharacter.type = .PC
-//        XCTAssertEqual(aCharacter.type, .PC, "Cannot set Character as PC")
-//    }
-//    
-//    func testCharacterCanBeNPC() {
-//        aCharacter.type = .NPC
-//        XCTAssertEqual(aCharacter.type, .NPC, "Cannot set Character as NPC")
-//    }
+
+    
+    
+    func testCharacterCanBePC() {
+        aCharacter.characterType = "PC"
+        XCTAssertEqual(aCharacter.characterType!, "PC", "Cannot set Character as PC")
+    }
+    
+    func testCharacterCannotBeSomethingOtherThanPCorNPC () {
+//        XCTFail("Currently succeeding where it ought to fail") // might be that Core Data anly validates on save?
+        aCharacter.characterType = "blargle!"
+        var error : NSError? = nil
+        if !aCharacter.managedObjectContext!.save(&error) {
+            NSLog("Unresolved error \(error), \(error!.userInfo)")
+            abort()
+        }
+//        XCTAssertTrue(<#expression: BooleanType#>, <#message: String#>)
+    }
     
 
     func testPerformanceExample() {

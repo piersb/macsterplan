@@ -22,7 +22,7 @@ public class Player: NSManagedObject {
 
     public override func awakeFromInsert() {
         super.awakeFromInsert()
-        self.dateCreated = NSDate()
+        self.dateCreated = NSDate() //document creation date - we might be able to get this for free somewhere?
         
     }
     

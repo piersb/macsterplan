@@ -22,6 +22,7 @@ class CampaignTests: XCTestCase {
     var aCampaign: Campaign!
     var aCharacter: GameCharacter!
     var aPlayer: Player!
+    var aSecondPlayer: Player!
     
     override func setUp() {
         super.setUp()
@@ -40,6 +41,8 @@ class CampaignTests: XCTestCase {
         
         let playerDescription = NSEntityDescription.entityForName("Player", inManagedObjectContext: managedObjectContext)
         aPlayer = Player(entity: playerDescription!, insertIntoManagedObjectContext: managedObjectContext)
+        aSecondPlayer = Player(entity: playerDescription!, insertIntoManagedObjectContext: managedObjectContext) // should probably be stripped out of setup and only initted in the tests it's needed for
+
         
         let characterDescription = NSEntityDescription.entityForName("Character", inManagedObjectContext: managedObjectContext)
         aCharacter = GameCharacter(entity: characterDescription!, insertIntoManagedObjectContext: managedObjectContext)
@@ -83,7 +86,9 @@ class CampaignTests: XCTestCase {
     }
     
     func testCampaignCanListPlayers() {
-        
+        aCampaign.addPlayer(aPlayer)
+        aCampaign.addPlayer(aSecondPlayer)
+        XCTAssertTrue(aCampaign.listPlayers().contains(aSecondPlayer), "Campaign is not returning list of players")
     }
 
     func testCampaignHasCreationDate() {
