@@ -14,16 +14,22 @@ class CharacterTest: XCTestCase {
 
     var aCharacter: GameCharacter!
     
+    // setting up our core data variables
+    var managedObjectModel: NSManagedObjectModel!
+    var persistentStoreCoordinator: NSPersistentStoreCoordinator!
+    var managedObjectContext: NSManagedObjectContext!
+
+    
     override func setUp() {
         super.setUp()
         
         // we need to create an in memory store to test core data
-        let managedObjectModel = NSManagedObjectModel.mergedModelFromBundles([NSBundle.mainBundle()])!
+        managedObjectModel = NSManagedObjectModel.mergedModelFromBundles([NSBundle.mainBundle()])!
         
-        let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
+        persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
         persistentStoreCoordinator.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: nil)
         
-        let managedObjectContext = NSManagedObjectContext()
+        managedObjectContext = NSManagedObjectContext()
         managedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator
         
         
@@ -38,26 +44,32 @@ class CharacterTest: XCTestCase {
 
         aCharacter = nil
         
+        // tear down our core data stack
+        managedObjectModel = nil
+        persistentStoreCoordinator = nil
+        managedObjectContext = nil
+
+        
         super.tearDown()
     }
 
     
     func testCharacterCanBeCreated() {
-        XCTAssertNotNil(aCharacter, "Cannot find instance of Character")
+        XCTAssertNotNil(aCharacter, "Cannot create instance of Character")
     }
     
     func testCharacterCanBeRenamed() {
-//        aCharacter.name = "Bob Whimsy"
-//        XCTAssertEqual(aCharacter.name, "Bob Whimsy", "Cannot alter character name")
+        aCharacter.name = "Bob Whimsy"
+        XCTAssertEqual(aCharacter.name!, "Bob Whimsy", "Cannot alter character name")
     }
     
     
-//    
-//    func testCharacterCanHaveBio() {
-//        aCharacter.bio = "This is my bio."
-//        XCTAssertEqual(aCharacter.bio, "This is my bio.", "Cannot update bio")
-//    }
-//    
+    
+    func testCharacterCanHaveBio() {
+        aCharacter.bio = "This is my bio."
+        XCTAssertEqual(aCharacter.bio!, "This is my bio.", "Cannot update bio")
+    }
+//
 //    func testCharacterCanHavePlayer() {
 //        aCharacter.player = "Piers"
 //        XCTAssertEqual(aCharacter.player, "Piers", "Cannot give Character to Player")

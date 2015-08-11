@@ -26,22 +26,28 @@ class CampaignTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        // set up our core data, and create player, character, and campaign entries
-//        let managedObjectContext = CoreDataHelper.setUpInMemoryManagedObjectContext()
-//        
-//        let playerDescription = NSEntityDescription.entityForName("Player", inManagedObjectContext: managedObjectContext)
-//        aPlayer = Player(entity: playerDescription!, insertIntoManagedObjectContext: managedObjectContext)
-//        
-//        let characterDescription = NSEntityDescription.entityForName("Character", inManagedObjectContext: managedObjectContext)
-//        aCharacter = GameCharacter(entity: characterDescription!, insertIntoManagedObjectContext: managedObjectContext)
-//        
-//        let campaignDescription = NSEntityDescription.entityForName("Campaign", inManagedObjectContext: managedObjectContext)
-//        aCampaign = Campaign(entity: campaignDescription!, insertIntoManagedObjectContext: managedObjectContext)
-//        
-//        println("CHECKING OUT CAMPAIGN")
-//        println(aCampaign.dateCreated)
-//        
-//        managedObjectContext.save(nil)
+        // we need to create an in memory store to test core data
+        managedObjectModel = NSManagedObjectModel.mergedModelFromBundles([NSBundle.mainBundle()])!
+        
+        persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
+        persistentStoreCoordinator.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: nil)
+        
+        managedObjectContext = NSManagedObjectContext()
+        managedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator
+        
+        
+        //create player, character, and campaign entries
+        
+        let playerDescription = NSEntityDescription.entityForName("Player", inManagedObjectContext: managedObjectContext)
+        aPlayer = Player(entity: playerDescription!, insertIntoManagedObjectContext: managedObjectContext)
+        
+        let characterDescription = NSEntityDescription.entityForName("Character", inManagedObjectContext: managedObjectContext)
+        aCharacter = GameCharacter(entity: characterDescription!, insertIntoManagedObjectContext: managedObjectContext)
+        
+        let campaignDescription = NSEntityDescription.entityForName("Campaign", inManagedObjectContext: managedObjectContext)
+        aCampaign = Campaign(entity: campaignDescription!, insertIntoManagedObjectContext: managedObjectContext)
+        
+
 
     }
     
@@ -62,29 +68,9 @@ class CampaignTests: XCTestCase {
 
     
     func testCampaignCanBeCreated() {
-
-        
-        let playerDescription = NSEntityDescription.entityForName("Player", inManagedObjectContext: managedObjectContext)
-        aPlayer = Player(entity: playerDescription!, insertIntoManagedObjectContext: managedObjectContext)
-        
-        let characterDescription = NSEntityDescription.entityForName("Character", inManagedObjectContext: managedObjectContext)
-        aCharacter = GameCharacter(entity: characterDescription!, insertIntoManagedObjectContext: managedObjectContext)
-        
-        let campaignDescription = NSEntityDescription.entityForName("Campaign", inManagedObjectContext: managedObjectContext)
-        aCampaign = Campaign(entity: campaignDescription!, insertIntoManagedObjectContext: managedObjectContext)
-        
-        println("CHECKING OUT CAMPAIGN")
-        println(aCampaign.dateCreated)
-        
-        managedObjectContext.save(nil)
-
+        XCTAssertNotNil(aCampaign, "Could not create Campaign")
     }
     
-    func testThingsAreNotPersistent() {
-        println("DOES IT PERSIST?")
-        println(aCampaign.dateCreated)
-        XCTAssertNotNil(aCampaign, "Campaign cannot be created")
-    }
     
     func testCampaignCanHaveName() {
         aCampaign.name = "The Eyes of the Overworld"
@@ -107,9 +93,8 @@ class CampaignTests: XCTestCase {
     }
 
     func testCampaignHasCreationDate() {
-        
-//        NSLog("%@", aCampaign.dateCreated)
-    }
+        // there's probably a better way of testing the date can be set correctly
+        XCTAssertTrue(aPlayer.dateCreated?.timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate , "It was somehow created in the future")    }
     
    
     
