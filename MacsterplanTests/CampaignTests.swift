@@ -10,12 +10,8 @@ import Cocoa
 import XCTest
 import Macsterplan
 
-class CampaignTests: XCTestCase {
+class CampaignTests: MacsterplanTests {
     
-    // setting up our core data variables
-    var managedObjectModel: NSManagedObjectModel!
-    var persistentStoreCoordinator: NSPersistentStoreCoordinator!
-    var managedObjectContext: NSManagedObjectContext!
     
     // setting up our test variables
     
@@ -55,11 +51,6 @@ class CampaignTests: XCTestCase {
     }
     
     override func tearDown() {
-        
-        // tear down our core data stack
-        managedObjectModel = nil
-        persistentStoreCoordinator = nil
-        managedObjectContext = nil       
         
         aCampaign = nil
         aCharacter = nil
@@ -102,11 +93,6 @@ class CampaignTests: XCTestCase {
         XCTAssertTrue(aPlayer.dateCreated?.timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate , "It was somehow created in the future")    }
     
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
-    }
+
 
 }

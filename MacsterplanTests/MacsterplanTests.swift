@@ -11,7 +11,7 @@ import XCTest
 
 class MacsterplanTests: XCTestCase {
     
-    // setting up our core data variables
+    // setting up our core data variables for the NSManagedObject Stack
     var managedObjectModel: NSManagedObjectModel!
     var persistentStoreCoordinator: NSPersistentStoreCoordinator!
     var managedObjectContext: NSManagedObjectContext!
