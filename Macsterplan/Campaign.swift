@@ -25,10 +25,8 @@ public class Campaign: NSManagedObject {
     }
 
 
-
-    func isPlayerInCampaign (aPlayer: Player) -> Bool {
-//        return players.contains(aPlayer)
-    return true
+    public func isPlayerInCampaign (aPlayer: Player) -> Bool {
+        return players!.contains(aPlayer)
     }
 
     public func addPlayer (aNewPlayer: Player) {

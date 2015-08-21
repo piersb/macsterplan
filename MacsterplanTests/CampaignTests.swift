@@ -90,6 +90,12 @@ class CampaignTests: XCTestCase {
         aCampaign.addPlayer(aSecondPlayer)
         XCTAssertTrue(aCampaign.listPlayers().contains(aSecondPlayer), "Campaign is not returning list of players")
     }
+    
+    func testIsPlayerInCampaign() {
+        aCampaign.addPlayer(aPlayer)
+        XCTAssertTrue(aCampaign.isPlayerInCampaign(aPlayer), "Cannot find Player in Campaign who is")
+        XCTAssertFalse(aCampaign.isPlayerInCampaign(aSecondPlayer), "Incorrectly found Player in Campaign who wasn't")
+    }
 
     func testCampaignHasCreationDate() {
         // there's probably a better way of testing the date can be set correctly

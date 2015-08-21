@@ -11,13 +11,38 @@ import XCTest
 
 class MacsterplanTests: XCTestCase {
     
+    // setting up our core data variables
+    var managedObjectModel: NSManagedObjectModel!
+    var persistentStoreCoordinator: NSPersistentStoreCoordinator!
+    var managedObjectContext: NSManagedObjectContext!
+    var playerDescription: NSEntityDescription!
+    
+   
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+
+        
+        // we need to create an in memory store to test core data
+        managedObjectModel = NSManagedObjectModel.mergedModelFromBundles([NSBundle.mainBundle()])!
+        
+        persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
+        persistentStoreCoordinator.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: nil)
+        
+        managedObjectContext = NSManagedObjectContext()
+        managedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator
+        
+
+        
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        // tear down our core data stack
+        
+        managedObjectModel = nil
+        persistentStoreCoordinator = nil
+        managedObjectContext = nil
+        playerDescription = nil
+        
         super.tearDown()
     }
     

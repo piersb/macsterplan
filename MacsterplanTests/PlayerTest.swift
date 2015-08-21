@@ -10,14 +10,7 @@ import Cocoa
 import XCTest
 import Macsterplan
 
-class PlayerTest: XCTestCase {
-    
-    
-    // setting up our core data variables
-    var managedObjectModel: NSManagedObjectModel!
-    var persistentStoreCoordinator: NSPersistentStoreCoordinator!
-    var managedObjectContext: NSManagedObjectContext!
-    var playerDescription: NSEntityDescription!
+class PlayerTest: MacsterplanTests {
     
     
     var aPlayer: Player!
@@ -25,15 +18,6 @@ class PlayerTest: XCTestCase {
    
     override func setUp() {
         super.setUp()
-        
-        // we need to create an in memory store to test core data
-        managedObjectModel = NSManagedObjectModel.mergedModelFromBundles([NSBundle.mainBundle()])!
-        
-        persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
-        persistentStoreCoordinator.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: nil)
-        
-        managedObjectContext = NSManagedObjectContext()
-        managedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator
         
         playerDescription = NSEntityDescription.entityForName("Player", inManagedObjectContext: managedObjectContext)
         
@@ -47,13 +31,6 @@ class PlayerTest: XCTestCase {
         // tear down our test entities
         aPlayer = nil
         anotherPlayer = nil
-    
-        // tear down our core data stack
-        managedObjectModel = nil
-        persistentStoreCoordinator = nil
-        managedObjectContext = nil
-        playerDescription = nil
-        
         
         super.tearDown()
     }
@@ -73,13 +50,5 @@ class PlayerTest: XCTestCase {
         XCTAssertTrue(aPlayer.dateCreated?.timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate , "It was somehow created in the future")
     }
 
-    
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
-    }
 
 }
