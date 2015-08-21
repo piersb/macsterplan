@@ -23,15 +23,7 @@ class CampaignTests: MacsterplanTests {
     override func setUp() {
         super.setUp()
         
-        // we need to create an in memory store to test core data
-        managedObjectModel = NSManagedObjectModel.mergedModelFromBundles([NSBundle.mainBundle()])!
-        
-        persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
-        persistentStoreCoordinator.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: nil)
-        
-        managedObjectContext = NSManagedObjectContext()
-        managedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator
-        
+       
         
         //create player, character, and campaign entries
         
@@ -52,11 +44,7 @@ class CampaignTests: MacsterplanTests {
     
     override func tearDown() {
         
-        aCampaign = nil
-        aCharacter = nil
-        aPlayer = nil
-
-        
+       
         super.tearDown()
     }
 
