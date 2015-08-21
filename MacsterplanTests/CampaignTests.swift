@@ -44,6 +44,11 @@ class CampaignTests: MacsterplanTests {
     
     override func tearDown() {
         
+        aCampaign = nil
+        aCharacter = nil
+        aPlayer = nil
+        aSecondPlayer = nil
+               
        
         super.tearDown()
     }
