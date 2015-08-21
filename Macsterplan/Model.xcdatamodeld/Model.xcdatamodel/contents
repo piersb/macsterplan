@@ -14,6 +14,9 @@
         <relationship name="party" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Party" inverseName="characters" inverseEntity="Party" syncable="YES"/>
         <relationship name="player" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="characters" inverseEntity="Player" syncable="YES"/>
     </entity>
+    <entity name="Character_5e" representedClassName="Macsterplan.Character_5e" syncable="YES">
+        <attribute name="level" attributeType="Integer 16" minValueString="1" maxValueString="20" defaultValueString="1" syncable="YES"/>
+    </entity>
     <entity name="Party" representedClassName="Macsterplan.Party" syncable="YES">
         <attribute name="dateCreated" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" defaultValueString="x" syncable="YES"/>
@@ -30,5 +33,6 @@
         <element name="Character" positionX="-441" positionY="-135" width="128" height="133"/>
         <element name="Party" positionX="-180" positionY="-90" width="128" height="90"/>
         <element name="Player" positionX="-902" positionY="-184" width="128" height="103"/>
+        <element name="Character_5e" positionX="-693" positionY="-144" width="128" height="60"/>
     </elements>
 </model>

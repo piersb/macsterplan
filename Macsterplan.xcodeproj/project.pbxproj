@@ -16,6 +16,8 @@
 		B79A52551B79194D00A4162C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79A52541B79194D00A4162C /* Player.swift */; };
 		B79A525D1B792D2400A4162C /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79A525C1B792D2400A4162C /* Character.swift */; };
 		B79A52631B793C2200A4162C /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79A52621B793C2200A4162C /* Campaign.swift */; };
+		B7C3FD021B879289008D59C7 /* Character_5e.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C3FD011B879289008D59C7 /* Character_5e.swift */; };
+		B7C3FD041B8792CF008D59C7 /* Character_5e_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C3FD031B8792CF008D59C7 /* Character_5e_Tests.swift */; };
 		B7E3644D1B41743000F8E4D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3644C1B41743000F8E4D2 /* AppDelegate.swift */; };
 		B7E3644F1B41743000F8E4D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3644E1B41743000F8E4D2 /* ViewController.swift */; };
 		B7E364511B41743000F8E4D2 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E364501B41743000F8E4D2 /* Document.swift */; };
@@ -46,6 +48,8 @@
 		B79A52541B79194D00A4162C /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		B79A525C1B792D2400A4162C /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		B79A52621B793C2200A4162C /* Campaign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
+		B7C3FD011B879289008D59C7 /* Character_5e.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character_5e.swift; sourceTree = "<group>"; };
+		B7C3FD031B8792CF008D59C7 /* Character_5e_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character_5e_Tests.swift; sourceTree = "<group>"; };
 		B7E364471B41743000F8E4D2 /* Macsterplan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Macsterplan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E3644B1B41743000F8E4D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7E3644C1B41743000F8E4D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,11 +111,12 @@
 				B7E364571B41743000F8E4D2 /* Main.storyboard */,
 				B78F90481B7A5A3900E87240 /* CharacterViewController.swift */,
 				B7E364521B41743000F8E4D2 /* Document.xcdatamodeld */,
-				B7E3644A1B41743000F8E4D2 /* Supporting Files */,
 				B79A52541B79194D00A4162C /* Player.swift */,
 				B7745E9A1B87610000003290 /* Party.swift */,
 				B79A52621B793C2200A4162C /* Campaign.swift */,
 				B79A525C1B792D2400A4162C /* Character.swift */,
+				B7C3FD011B879289008D59C7 /* Character_5e.swift */,
+				B7E3644A1B41743000F8E4D2 /* Supporting Files */,
 			);
 			path = Macsterplan;
 			sourceTree = "<group>";
@@ -127,12 +132,13 @@
 		B7E364611B41743000F8E4D2 /* MacsterplanTests */ = {
 			isa = PBXGroup;
 			children = (
-				B7E364621B41743000F8E4D2 /* Supporting Files */,
 				B7E364641B41743000F8E4D2 /* MacsterplanTests.swift */,
+				B7C3FD031B8792CF008D59C7 /* Character_5e_Tests.swift */,
 				B7E364731B41784700F8E4D2 /* CharacterTest.swift */,
 				B7745E9E1B87611F00003290 /* PartyTest.swift */,
 				B749A3AC1B72C746001739AE /* CampaignTests.swift */,
 				B7711EC21B701938008E9012 /* PlayerTest.swift */,
+				B7E364621B41743000F8E4D2 /* Supporting Files */,
 			);
 			path = MacsterplanTests;
 			sourceTree = "<group>";
@@ -250,6 +256,7 @@
 				B7E364541B41743000F8E4D2 /* Document.xcdatamodeld in Sources */,
 				B7E3644F1B41743000F8E4D2 /* ViewController.swift in Sources */,
 				B79A52211B78EB0E00A4162C /* Model.xcdatamodeld in Sources */,
+				B7C3FD021B879289008D59C7 /* Character_5e.swift in Sources */,
 				B7745E9C1B87610000003290 /* Party.swift in Sources */,
 				B79A52551B79194D00A4162C /* Player.swift in Sources */,
 				B7E3644D1B41743000F8E4D2 /* AppDelegate.swift in Sources */,
@@ -264,6 +271,7 @@
 				B7E364651B41743000F8E4D2 /* MacsterplanTests.swift in Sources */,
 				B749A3AD1B72C746001739AE /* CampaignTests.swift in Sources */,
 				B7711EC31B701938008E9012 /* PlayerTest.swift in Sources */,
+				B7C3FD041B8792CF008D59C7 /* Character_5e_Tests.swift in Sources */,
 				B7745E9F1B87611F00003290 /* PartyTest.swift in Sources */,
 				B7E364741B41784700F8E4D2 /* CharacterTest.swift in Sources */,
 			);
