@@ -10,30 +10,14 @@ import Cocoa
 import XCTest
 import Macsterplan
 
-class CharacterTest: XCTestCase {
+class CharacterTest: MacsterplanTests {
 
     var aCharacter: GameCharacter!
-    
-    // setting up our core data variables
-    var managedObjectModel: NSManagedObjectModel!
-    var persistentStoreCoordinator: NSPersistentStoreCoordinator!
-    var managedObjectContext: NSManagedObjectContext!
-
     
     override func setUp() {
         super.setUp()
         
-        // we need to create an in memory store to test core data
-        managedObjectModel = NSManagedObjectModel.mergedModelFromBundles([NSBundle.mainBundle()])!
-        
-        persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
-        persistentStoreCoordinator.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: nil)
-        
-        managedObjectContext = NSManagedObjectContext()
-        managedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator
-        
-        
-        // and here are our entities
+        //  here are our entities
         let entityDescription = NSEntityDescription.entityForName("Character", inManagedObjectContext: managedObjectContext)
                             // Can't see any way to rename the entity name from Character (reserved in most other places in Swift, hence less than ideal) to GameCharacter...
         aCharacter = GameCharacter(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
@@ -43,12 +27,6 @@ class CharacterTest: XCTestCase {
     override func tearDown() {
 
         aCharacter = nil
-        
-        // tear down our core data stack
-        managedObjectModel = nil
-        persistentStoreCoordinator = nil
-        managedObjectContext = nil
-
         
         super.tearDown()
     }
@@ -109,11 +87,5 @@ class CharacterTest: XCTestCase {
     }
     
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
-    }
 
 }
