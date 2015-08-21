@@ -29,10 +29,7 @@ class PartyTest: MacsterplanTests {
         
         let partyDescription =  NSEntityDescription.entityForName("Party", inManagedObjectContext: managedObjectContext)
         aParty = Party (entity: partyDescription!, insertIntoManagedObjectContext: managedObjectContext)
-        
-        let campaignDescription =  NSEntityDescription.entityForName("Campaign", inManagedObjectContext: managedObjectContext)
-        aCampaign = Campaign (entity: campaignDescription!, insertIntoManagedObjectContext: managedObjectContext)
-
+    
         
     }
     
@@ -45,31 +42,15 @@ class PartyTest: MacsterplanTests {
         super.tearDown()
     }
     
-    func testCampaignCanAddCharacter() {
-        aCampaign.addCharacter(aCharacter)
-        XCTAssertTrue(aCampaign.mutableSetValueForKey("characters").containsObject(aCharacter), "Character not successfully added to Campaign")
+    func testPartyCanAddCharacter() {
+        aParty.addCharacter(aCharacter)
+        XCTAssertTrue(aParty.mutableSetValueForKey("characters").containsObject(aCharacter), "Can't add character to Party")
     }
-
 
     func testPartyHasCreationDate() {
         // there's probably a better way of testing the date can be set correctly
         XCTAssertTrue(aParty.dateCreated?.timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate , "It was somehow created in the future")
     }
-    
-    func testPartyCanContainCharacters() {
-        aParty.addString ("a string")
-        
-        
-//        aParty.addCharacter(aCharacter)
-//        XCTAssertTrue(aParty.mutableSetValueForKey("characters").containsObject (aCharacter), "Can't add Character to Party")
-    }
-    
-    
-    func testCharacterCanBeRenamed() {
-        aCharacter.name = "Bob Whimsy"
-        XCTAssertEqual(aCharacter.name!, "Bob Whimsy", "Cannot alter character name")
-    }
-    
     
 
 

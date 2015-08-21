@@ -14,7 +14,7 @@
         <relationship name="party" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Party" inverseName="characters" inverseEntity="Party" syncable="YES"/>
         <relationship name="player" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="characters" inverseEntity="Player" syncable="YES"/>
     </entity>
-    <entity name="Party" syncable="YES">
+    <entity name="Party" representedClassName="Macsterplan.Party" syncable="YES">
         <attribute name="dateCreated" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" defaultValueString="x" syncable="YES"/>
         <relationship name="characters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="party" inverseEntity="Character" syncable="YES"/>

@@ -28,13 +28,9 @@ public class Party: NSManagedObject {
         
     }
     
-    public func addBlob (aNewCharacter: String) {
-//        var items = self.mutableSetValueForKey("characters")
-//        items.addObject(aNewCharacter)
-    }
-    
-    public func addString (aString: String) {
-        println ("strung!")
+    public func addCharacter (aNewCharacter: GameCharacter) {
+        var items = self.mutableSetValueForKey("characters")
+        items.addObject(aNewCharacter)
     }
     
 
