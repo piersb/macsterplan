@@ -12,7 +12,7 @@ import CoreData
 public class Campaign: NSManagedObject {
 
     @NSManaged public var name: String
-    @NSManaged public var character: NSSet
+    @NSManaged public var characters: Set<GameCharacter>?
     @NSManaged public var players: Set<Player>?
     @NSManaged public var dateCreated: NSDate
 
@@ -30,7 +30,7 @@ public class Campaign: NSManagedObject {
     }
 
     public func addPlayer (aNewPlayer: Player) {
-        var items = self.mutableSetValueForKey("players");
+        var items = self.mutableSetValueForKey("players")
         items.addObject(aNewPlayer)
     }
 
@@ -44,14 +44,17 @@ public class Campaign: NSManagedObject {
             items.removeObject(value)
         }
     }
-        
+    
+    public func addCharacter (aNewCharacter: GameCharacter) {
+        var items = self.mutableSetValueForKey("characters")
+        items.addObject(aNewCharacter)
+    }
+    
     
     public override func awakeFromInsert() {
         super.awakeFromInsert()
         self.dateCreated = NSDate()
-        players = Set<Player>()
-        
-        
+        players = Set<Player>()                         
     }
     
     public override func awakeFromFetch() {

@@ -15,6 +15,8 @@
         <relationship name="player" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="characters" inverseEntity="Player" syncable="YES"/>
     </entity>
     <entity name="Party" syncable="YES">
+        <attribute name="dateCreated" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="x" syncable="YES"/>
         <relationship name="characters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="party" inverseEntity="Character" syncable="YES"/>
     </entity>
     <entity name="Player" representedClassName="Macsterplan.Player" syncable="YES">
@@ -24,9 +26,9 @@
         <relationship name="characters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="player" inverseEntity="Character" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Campaign" positionX="27" positionY="81" width="128" height="105"/>
+        <element name="Campaign" positionX="-684" positionY="-261" width="128" height="105"/>
         <element name="Character" positionX="-441" positionY="-135" width="128" height="133"/>
-        <element name="Player" positionX="-468" positionY="108" width="128" height="103"/>
-        <element name="Party" positionX="-216" positionY="-207" width="128" height="58"/>
+        <element name="Party" positionX="-180" positionY="-90" width="128" height="90"/>
+        <element name="Player" positionX="-902" positionY="-184" width="128" height="103"/>
     </elements>
 </model>

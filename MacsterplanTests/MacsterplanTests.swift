@@ -15,7 +15,7 @@ class MacsterplanTests: XCTestCase {
     var managedObjectModel: NSManagedObjectModel!
     var persistentStoreCoordinator: NSPersistentStoreCoordinator!
     var managedObjectContext: NSManagedObjectContext!
-    var playerDescription: NSEntityDescription!
+
     
    
     override func setUp() {
@@ -41,15 +41,12 @@ class MacsterplanTests: XCTestCase {
         managedObjectModel = nil
         persistentStoreCoordinator = nil
         managedObjectContext = nil
-        playerDescription = nil
+
+        
         
         super.tearDown()
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
+
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

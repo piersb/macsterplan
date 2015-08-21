@@ -48,7 +48,7 @@ class CampaignTests: MacsterplanTests {
         aCharacter = nil
         aPlayer = nil
         aSecondPlayer = nil
-               
+            
        
         super.tearDown()
     }
@@ -67,6 +67,11 @@ class CampaignTests: MacsterplanTests {
     func testCampaignCanAddPlayer() {
         aCampaign.addPlayer(aPlayer)
         XCTAssertTrue(aCampaign.mutableSetValueForKey("players").containsObject(aPlayer), "Player not successfully added to Campaign")
+    }
+    
+    func testCampaignCanAddCharacter() {
+        aCampaign.addCharacter(aCharacter)
+        XCTAssertTrue(aCampaign.mutableSetValueForKey("characters").containsObject(aCharacter), "Character not successfully added to Campaign")
     }
     
     func testCampaignCanListPlayers() {

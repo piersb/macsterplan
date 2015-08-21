@@ -15,6 +15,7 @@ public class GameCharacter: NSManagedObject {
     @NSManaged public var bio: String?
     @NSManaged public var characterType: String?
     @NSManaged public var player: Player?
+    @NSManaged public var party: Party?
 
     convenience init(context: NSManagedObjectContext) {
         // may be necessary to avoid the nil-return bug described at http://www.jessesquires.com/swift-coredata-and-testing/

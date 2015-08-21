@@ -131,8 +131,8 @@
 				B7E364641B41743000F8E4D2 /* MacsterplanTests.swift */,
 				B7E364731B41784700F8E4D2 /* CharacterTest.swift */,
 				B7745E9E1B87611F00003290 /* PartyTest.swift */,
-				B7711EC21B701938008E9012 /* PlayerTest.swift */,
 				B749A3AC1B72C746001739AE /* CampaignTests.swift */,
+				B7711EC21B701938008E9012 /* PlayerTest.swift */,
 			);
 			path = MacsterplanTests;
 			sourceTree = "<group>";

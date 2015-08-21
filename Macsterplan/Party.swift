@@ -6,18 +6,36 @@
 //  Copyright (c) 2015 Piers Beckley. All rights reserved.
 //
 
-import Cocoa
+import Foundation
+import CoreData
 
 public class Party: NSManagedObject {
     
     @NSManaged public var name: String?
     @NSManaged public var dateCreated: NSDate?
     @NSManaged public var characters: Set<GameCharacter>?
+    
+    convenience init(context: NSManagedObjectContext) {
+        let entityDescription = NSEntityDescription.entityForName("Party", inManagedObjectContext: context)!
+        self.init(entity: entityDescription, insertIntoManagedObjectContext: context)
+    }
+    
    
     public override func awakeFromInsert() {
         super.awakeFromInsert()
         self.dateCreated = NSDate() //document creation date - we might be able to get this for free somewhere?
+        characters = Set<GameCharacter>() // need to initialise the set or we get a runtime crash
         
     }
     
+    public func addBlob (aNewCharacter: String) {
+//        var items = self.mutableSetValueForKey("characters")
+//        items.addObject(aNewCharacter)
+    }
+    
+    public func addString (aString: String) {
+        println ("strung!")
+    }
+    
+
 }

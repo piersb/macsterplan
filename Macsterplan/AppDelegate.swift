@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Foundation
 import CoreData
 
 @NSApplicationMain
@@ -22,6 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var aPlayer: Player!
     var aCampaign: Campaign!
     var aCharacter: GameCharacter!
+    var aParty: Party!
     
     
     func test() {
@@ -37,6 +39,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let campaignDescription = NSEntityDescription.entityForName("Campaign", inManagedObjectContext: managedObjectContext)
         aCampaign = Campaign(entity: campaignDescription!, insertIntoManagedObjectContext: managedObjectContext)
+        
+        let partyDescription = NSEntityDescription.entityForName("Party", inManagedObjectContext: managedObjectContext)
+        aParty = Party(entity: partyDescription!, insertIntoManagedObjectContext: managedObjectContext)
         
         NSLog("%@", aCampaign.dateCreated)
         println(aCampaign)

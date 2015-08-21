@@ -19,7 +19,7 @@ class PlayerTest: MacsterplanTests {
     override func setUp() {
         super.setUp()
         
-        playerDescription = NSEntityDescription.entityForName("Player", inManagedObjectContext: managedObjectContext)
+        let playerDescription = NSEntityDescription.entityForName("Player", inManagedObjectContext: managedObjectContext)
         
         //here are our test entities
         aPlayer = Player (entity: playerDescription!, insertIntoManagedObjectContext: managedObjectContext)
