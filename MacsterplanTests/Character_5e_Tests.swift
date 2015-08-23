@@ -63,6 +63,11 @@ class Character_5e_Tests: CharacterTest {
         XCTAssertTrue(thisCharacter.characterClass == "fighter", "Can't set character class to a string")
     }
     
+    func testCharacterCanHaveARace() {
+        thisCharacter.characterRace = "elf"
+        XCTAssertTrue(thisCharacter.characterRace == "elf", "Can't set character race")
+    }
+    
     
     
     
