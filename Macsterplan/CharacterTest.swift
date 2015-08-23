@@ -77,13 +77,12 @@ class CharacterTest: MacsterplanTests {
     }
     
     func testCharacterCannotBeSomethingOtherThanPCorNPC () {
-        aCharacter.characterType = "blargle!"
+        aCharacter.characterType = "blargle!" //should fail now this is set to PC
         var error : NSError? = nil
         if !aCharacter.managedObjectContext!.save(&error) {
             NSLog("Unresolved error \(error), \(error!.userInfo)")
-            XCTAssertNotNil(error, "Should throw error when confronted with a character type that's neither PC nor NPC")
         }
-        
+        XCTAssertNotNil(error, "Should throw error when confronted with a character type that's neither PC nor NPC")
     }
     
 

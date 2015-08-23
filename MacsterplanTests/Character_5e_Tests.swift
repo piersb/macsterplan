@@ -27,7 +27,7 @@ class Character_5e_Tests: CharacterTest {
     
     override func tearDown() {
 
-        aCharacter = nil
+        thisCharacter = nil
         
         super.tearDown()
     }
@@ -36,4 +36,31 @@ class Character_5e_Tests: CharacterTest {
         XCTAssertTrue(thisCharacter.level == 1, "Character level is not equal to 1 on Character Creation")
     }
 
+    func testCharacterCannotHaveALevelLessThanOne() {
+        thisCharacter.level = 0
+        var error : NSError? = nil
+        if !thisCharacter.managedObjectContext!.save(&error) {
+            NSLog("Unresolved error \(error), \(error!.userInfo)")
+        }
+        XCTAssertNotNil(error, "Should throw error when character level is set to 0")
+    }
+    
+    func testCharacterCannotHaveALevelGreaterThanThirty() {
+        thisCharacter.level = 21
+        var error : NSError? = nil
+        if !thisCharacter.managedObjectContext!.save(&error) {
+            NSLog("Unresolved error \(error), \(error!.userInfo)")
+        }
+        XCTAssertNotNil(error, "Should throw error when character level is set to 21")
+    }
+    
+    func testCharacterLevelCanBeChanged() {
+        thisCharacter.level = 20
+        XCTAssertTrue(thisCharacter.level == 20, "Can't change character level")
+        
+    }
+    
+    
+    
+    
 }

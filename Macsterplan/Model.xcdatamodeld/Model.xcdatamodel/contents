@@ -8,7 +8,7 @@
     </entity>
     <entity name="Character" representedClassName="Macsterplan.GameCharacter" syncable="YES">
         <attribute name="bio" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="characterType" optional="YES" attributeType="String" regularExpressionString="NPC" syncable="YES"/>
+        <attribute name="characterType" optional="YES" attributeType="String" regularExpressionString="N?PC" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="campaign" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Campaign" inverseName="characters" inverseEntity="Campaign" syncable="YES"/>
         <relationship name="party" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Party" inverseName="characters" inverseEntity="Party" syncable="YES"/>
@@ -30,9 +30,9 @@
     </entity>
     <elements>
         <element name="Campaign" positionX="-684" positionY="-261" width="128" height="105"/>
-        <element name="Character" positionX="-441" positionY="-135" width="128" height="133"/>
+        <element name="Character" positionX="-441" positionY="-135" width="128" height="135"/>
+        <element name="Character_5e" positionX="-693" positionY="-144" width="128" height="60"/>
         <element name="Party" positionX="-180" positionY="-90" width="128" height="90"/>
         <element name="Player" positionX="-902" positionY="-184" width="128" height="103"/>
-        <element name="Character_5e" positionX="-693" positionY="-144" width="128" height="60"/>
     </elements>
 </model>
