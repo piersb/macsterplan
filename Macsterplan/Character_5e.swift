@@ -11,5 +11,6 @@ import Cocoa
 public class Character_5e: GameCharacter {
     
     @NSManaged public var level: Int16
+    @NSManaged public var characterClass: String
     
 }

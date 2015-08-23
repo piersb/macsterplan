@@ -26,9 +26,7 @@ class Character_5e_Tests: CharacterTest {
     
     
     override func tearDown() {
-
         thisCharacter = nil
-        
         super.tearDown()
     }
 
@@ -58,6 +56,11 @@ class Character_5e_Tests: CharacterTest {
         thisCharacter.level = 20
         XCTAssertTrue(thisCharacter.level == 20, "Can't change character level")
         
+    }
+    
+    func testCharacterCanHaveAClass() {
+        thisCharacter.characterClass = "fighter"
+        XCTAssertTrue(thisCharacter.characterClass == "fighter", "Can't set character class to a string")
     }
     
     
